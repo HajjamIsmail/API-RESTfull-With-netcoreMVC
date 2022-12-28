@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Net.Http.Headers;
 using WebApp.Models;
-using Newtonsoft.Json;
-using System.Net.Http.Formatting;
-using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
 {
