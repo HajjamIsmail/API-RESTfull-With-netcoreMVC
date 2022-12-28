@@ -12,10 +12,10 @@ namespace WebApp.Models
         public string SexeJ { get; set; }
         [Display(Name = "Age Joueur")]
         public int? AgeJ { get; set; }
-        [Display(Name = "Id Equipe")]
+        [Display(Name = "Equipe")]
         public int? IdE { get; set; }
-        [Display(Name = "Nom Equipe")]
-        public string NomE { get;set; }
+        [Display(Name = "Equipe")]
+        public string? NomE { get;set; }
 
     }
 }

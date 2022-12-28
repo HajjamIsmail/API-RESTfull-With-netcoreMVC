@@ -13,6 +13,6 @@ namespace WebApi.Models
         public int? AgeJ { get; set; }
         public int? IdE { get; set; }
 
-        public virtual Equipe IdENavigation { get; set; }
+        public virtual Equipe? IdENavigation { get; set; }
     }
 }

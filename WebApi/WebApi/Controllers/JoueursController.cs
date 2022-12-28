@@ -55,32 +55,11 @@ namespace WebApi.Controllers
 
         // PUT: api/Joueurs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutJoueur(int id, Joueur joueur)
+        [HttpPut]
+        public async Task<IActionResult> PutJoueur(Joueur joueur)
         {
-            if (id != joueur.Id)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(joueur).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!JoueurExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _context.SaveChangesAsync();
             return NoContent();
         }
 
