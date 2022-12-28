@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics.Metrics;
 using WebApp.Models;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 
 namespace WebApp.Controllers
 {
@@ -23,6 +25,7 @@ namespace WebApp.Controllers
                     var readTask = result.Content.ReadAsAsync<IList<Joueur>>();
                     readTask.Wait();
                     joueur = readTask.Result;
+                    
                 }
                 else //web api sent error response 
                 {
@@ -84,5 +87,7 @@ namespace WebApp.Controllers
 
             return View(joueur);
         }
+
+
     }
 }

@@ -25,29 +25,30 @@
                 @Html.DisplayNameFor(model => model.AgeJ)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdE)
+                @Html.DisplayNameFor(model => model.NomE)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+        {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomJ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SexeJ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AgeJ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdE)
-            </td>
+                <td>
+                    @Html.DisplayFor(model => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.NomJ)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.SexeJ)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.AgeJ)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.NomE)
+                </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

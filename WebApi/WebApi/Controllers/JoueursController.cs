@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Data;
 using WebApi.Models;
-
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -19,13 +18,25 @@ namespace WebApi.Controllers
         public JoueursController(TournoiDBContext context)
         {
             _context = context;
+            
         }
 
         // GET: api/Joueurs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Joueur>>> GetJoueurs()
+
+        public async Task<ActionResult<List<Joueur>>> GetJoueurs()
         {
-            return await _context.Joueurs.ToListAsync();
+            var request = (from j in _context.Joueurs
+                           join e in _context.Equipes on j.IdE equals e.Id
+                           select new
+                           {
+                               Id = j.Id,
+                               NomJ = j.NomJ,
+                               AgeJ = j.AgeJ,
+                               SexeJ = j.SexeJ,
+                               NomE = e.NomE
+                           });
+            return Ok(request.ToList());
         }
 
         // GET: api/Joueurs/5
